@@ -52,7 +52,7 @@ There are many ways of choosing a statistical model for data. One of the most st
 #### b. Hidden Markov Models  
 The Hidden Markov Model (HMM) is one of the most useful models in machine learning. HMMs are a type of Bayesian network that use transition and emission probabilities to interpret the state probability of a dataset. HMMs have been used in bioinformatic modeling from gene finding [1] to chromatin state discovery [2]. Here, we present a simple gene-finding HMM used to capture the properties of a protein-coding gene.  
 
-![](/Figures/Markouv.png)  
+![](/Figures/Markov.png)  
 
 This model requires a training set of labeled DNA sequences as inputs. Start and end coordinates, splice sites, and UTRs may be included as labels for such a model. The model uses this training data to learn general properties of genes, including the DNA pattern near donor and acceptor splice sites, the expected length distributions for each element, and patterns within elements, such as typical codons in an exon vs. an intron. The trained model can subsequently use these learned properties to identify novel genes that resemble the genes in the training set. 
 
