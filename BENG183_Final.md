@@ -3,17 +3,17 @@
 <b>Xin Yi Lei</b>  
 
 1. [Introduction](#1)   
-2. [Introduction to Supervised vs. Unsupervised Learning](#2)  
+2. [Supervised vs. Unsupervised Learning](#2)  
 3. [Model Selection and Optimization](#3)   
 4. [Supervised Learning](#4)  
 5. [Unsupervised Learning](#5)  
 6. [Sources](#6)  
 
-## I. Introduction<a name="1"></a>
+## 1. Introduction<a name="1"></a>
 
 Machine learning is an large branch of computer science and mathematics that involves algorithms and method development to aid in predictive modelling. Within the last few decades, large amounts of data have become available, and machine learning algorithms and techniques have enabled Bioinformaticians to utilize the datasets to predict, model, and make sense of the inflow of data. Machine learning has been used in the interpretation of large genomic data sets and the annotation of genomic sequence elements based on DNA pattern recognition. Since then, machine learning approaches have extended to other types of data, such as RNA-Seq differential gene expression, ChIP-Seq and chromatin annotation. 
 
-## II. Supervised Learning vs. Unsupervised Learning <a name="2"></a>
+## 2. Supervised Learning vs. Unsupervised Learning <a name="2"></a>
 
 Machine learning can be separated into two types - supervised and unsupervised learning. 
 
@@ -32,34 +32,34 @@ Unsupervised learning is trying to find structure in a data set without any labe
 - Input: a collection of data points without labels 
 - Output: predicted label for the unlabelled data points
 
-## III. Model Selection and Optimization  <a name="3"></a>  
-![](/final_figures/tvt.png)  
+## 3. Model Selection and Optimization  <a name="3"></a>  
+![](https://github.com/leilinda/beng183/blob/master/train_validation_test.png)  
 
-Model selection and optimization involves splitting the data into training, validation, and testing in order to ensure the model is both specific and predictive, but generalizable.  
+Model selection and optimization involves splitting the original set of data into training, validation, and testing. This is to ensure that the model is precise and accurate.
 
-The model is initially fit on a <b>training</b> dataset, that is a set of examples used to fit the parameters. Then, the fitted model is tested on the <b>validation</b> dataset, which offers an unbiased evaluation of the model and finetunes the hyperparameters and to make sure there is no overfitting. Finally, the <b>test</b> dataset is used to provide an unbiased evaluation of a final model fit on the training dataset.  
+The model is initially fit on a training dataset, that is a set of examples used to fit the basic parameters of the machine. Then, the fitted model is tested on the validation dataset, which serves to generate an unbiased evaluation of the model, finetunes the hyperparameters, and makes sure there is no overfitting. Finally, the test dataset is used to generate an unbiased evaluation of a final model fit on the training dataset.  
 
-## IV. Supervised Learning Applications<a name="4"></a> 
-Examples of supervised learning in genetics and genomics range from DNA pattern recognition to text-mining. In this section, we will discuss two prominent examples of supervised learning, and demonstrate some applications and their influence to the field.
+## 4. Supervised Learning Applications<a name="4"></a> 
+Supervised learning in genetics and genomics can range from DNA pattern recognition to text-mining. Here, we will discuss two prominent examples of supervised learning, linear regression and hidden markov models, and demonstrate some of their applications. 
 
-#### a. Hidden Markov Models  
-One of the most pervasive examples of supervised learning is the Hidden Markov Model, hereinafter referred to as the HMM. HMMs are a type of Bayesian network that use transition and emission probabilities to interpret the state probability of a dataset. HMMs have been used in bioinformatic modeling from chromatin state discovery [2] to gene finding [1]. Here, we present a simple gene-finding HMM used to capture the properties of a protein-coding gene.  
-![](/final_figures/gene_finding.jpg)  
+#### a. Linear Regression  
+Linear regression is useful in population genomics and medical genetics to perform single SNP association testing through optimizing the sum of the squared differences in a dataset. These datasets can be modelled in three ways - additive, dominant, and recessive. Each of these models attempts to estimate the proportion of phenotypic variation, in this case, cholesterol, explained by the SNP, and uses the coefficient of determination, or R^2 value, to assign confidence to that estimation [3]. 
 
-This model requires as input a training set of labeled DNA sequences. Labels for such a model may include the start and end coordinates of a gene, splice sites, and UTR. The model uses this training data to learn general properties of genes, including the DNA pattern near donor and acceptor splice sites, the expected length distributions for each element, and patterns within elements, such as typical codons in an exon vs. an intron. The trained model can then use these learned properties to identify novel genes that resemble the genes in the training set.  
+![](https://github.com/leilinda/beng183/blob/master/regression.JPG)  
 
-Note certain limitations to this type of model, namely that it is incapable of identifying overlapping genes or multiple isoforms of the same gene. Similar limitations exist for other applications of HMMs, such as in topologically associating domain (TAD) discovery and directionality index creation in Hi-C data, wherein a simple HMM as above cannot find a hierarchy of TADs. For biological questions like this, more complex models are useful.  
+There are many ways of choosing a statistical model for data. One of the most straightforward methods is to go with the simplest model that has the right parameters and right assumptions based on our biological data, and work toward building rigor and complexity. Hence, understanding the assumptions that come with each model and how it relates to the problem at hand is key to solving these problems. For example, the additive model generates a line to the dataset, and allows us to explore a number of minor alleles, major alleles, and their correlation with phenotypic variation. Such distinctions are important when performing association studies, such as for purposes related to drug target discovery.  
 
-#### b. Linear Regression  
-Another commonplace example of supervised learning in genomics is linear regression, which can be used in population genomics and medical genetics to perform single SNP association testing through optimizing the sum of the squared differences in a dataset. Notice how this dataset can be modeled in three ways - additive, dominant, and recessive. Each model attempts to estimate the proportion of phenotypic variation, in this case, cholesterol, explained by the SNP, and uses the coefficient of determination, or R^2 value, to assign confidence to that estimation [3]. 
-![](/final_figures/regression.JPG)  
-One approach to choosing a statistical model is to choose the simplest model that has the right parameters and right assumptions based on our biological data, and work toward building rigor and complexity. Thus, it is important to understand what the assumptions of each model are, and how it relates to the problem we are trying to solve. In the additive model, for example, by putting a line to the dataset, we are exploring the phenomenon that the number of minor alleles, or major alleles, is correlated with phenotypic variation, and as such the two homozogytes are equally different to the heterozygote. Such distinctions are important when performing association studies, e.g. for purposes related to drug target discovery.  
+#### b. Hidden Markov Models  
+The Hidden Markov Model (HMM) is one of the most useful models in machine learning. HMMs are a type of Bayesian network that use transition and emission probabilities to interpret the state probability of a dataset. HMMs have been used in bioinformatic modeling from gene finding [1] to chromatin state discovery [2]. Here, we present a simple gene-finding HMM used to capture the properties of a protein-coding gene.  
+![](https://github.com/leilinda/beng183/blob/master/Markouv%20model.png)  
 
-## V. Unsupervised Learning Applications<a name="5"></a>  
+This model requires a training set of labeled DNA sequences as inputs. Start and end coordinates, splice sites, and UTRs may be included as labels for such a model. The model uses this training data to learn general properties of genes, including the DNA pattern near donor and acceptor splice sites, the expected length distributions for each element, and patterns within elements, such as typical codons in an exon vs. an intron. The trained model can subsequently use these learned properties to identify novel genes that resemble the genes in the training set. 
+
+## 5. Unsupervised Learning Applications<a name="5"></a>  
 Finally, bioinformaticians often work with unlabelled data and use various clustering and dimensionality reduction algorithms to make sense of it. Here, we will discuss two such algorithms and their uses in the field.  
 
 #### a. Hierarchical Clustering  
-![](/final_figures/dendrogram.JPG)  
+![](https://github.com/leilinda/beng183/blob/master/dendogram.png)  
 Hierarchical clustering is useful in clustering datapoints to determine a similarity relationship within clusters and between clusters. The algorithm for hieararchical clustering is as follows:  
 ```
 1. First, what determines what makes some points more “similar” to each other than other points. For example, we could use distance between points as a basis for similarity  
@@ -72,7 +72,7 @@ Hierarchical clustering is useful in clustering datapoints to determine a simila
 Hiearchical clustering has applications including quality checking (do technical/biological replicates cluster together?) or in evolutionary genomics, such as phylogenetic tree inference.  
 
 #### b. K-means Clustering  
-![](final_figures/kmeans.JPG)  
+![](https://github.com/leilinda/beng183/blob/master/k-means%20clustering.png)  
 K-means clustering offers a simple alternative method of aggregating datapoints for further analysis. The algorithm for k-means clustering is as follows:  
 ```
 1. Begin with predetermined choice of clusters K, which are represented by centroids. Iterate the following two steps.
@@ -82,7 +82,7 @@ K-means clustering offers a simple alternative method of aggregating datapoints 
 ```  
 K-means clustering can be used to cluster gene expression profiles to predict gene function or cluster patient samples to predict clinical characteristics [4]. Altogether, both clustering methods offer valuable information in inferring and modeling the behavior of biological occurrences. One key difference between the two methods is that hierarchical clustering is determinate, that is it will always result in the same solution, whereas k-means depends on random initialization, which may change the solution. Another difference is that hierarchical clustering allows the scientist to understand the hierarchy of the dataset, whereas k-means rigidly assigns clusters without offering an understanding of their relationship within and to each other.  
 
-Altogether, machine learning is picking up speed in a wide array of bioinformatic applications, and it is critical to assess the considerations and recurrent challenges in such applications as they approach clinical and widespread usage. Nonetheless, such techniques offer a powerful basis from which to provide insight toward discovery in genomics.  
+Altogether, machine learning has a wide variety of bioinformatic applications. It is worth noting to assess the challenges in such applications as they approach clinical and widespread usage. Nonetheless, such techniques offer a powerful basis from which to provide insight toward discovery in genomics.  
 
 # Sources outside of class<a name="6"></a>  
 [1] Libbrecht M.W., Noble W. S. Machine Learning Applications in Genetics and Genomics. Nature Reviews Genetics. 16, (2015) 321-332.  
