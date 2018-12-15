@@ -33,7 +33,7 @@ Unsupervised learning is trying to find structure in a data set without any labe
 - Output: predicted label for the unlabelled data points
 
 ## 3. Model Selection and Optimization  <a name="3"></a>  
-![](https://github.com/leilinda/beng183/blob/master/train_validation_test.png)  
+![](/Figures/train_validation_test.png)        
 
 Model selection and optimization involves splitting the original set of data into training, validation, and testing. This is to ensure that the model is precise and accurate.
 
@@ -45,13 +45,14 @@ Supervised learning in genetics and genomics can range from DNA pattern recognit
 #### a. Linear Regression  
 Linear regression is useful in population genomics and medical genetics to perform single SNP association testing through optimizing the sum of the squared differences in a dataset. These datasets can be modelled in three ways - additive, dominant, and recessive. Each of these models attempts to estimate the proportion of phenotypic variation, in this case, cholesterol, explained by the SNP, and uses the coefficient of determination, or R^2 value, to assign confidence to that estimation [3]. 
 
-![](https://github.com/leilinda/beng183/blob/master/regression.JPG)  
+![](/Figures/regression.JPG)  
 
 There are many ways of choosing a statistical model for data. One of the most straightforward methods is to go with the simplest model that has the right parameters and right assumptions based on our biological data, and work toward building rigor and complexity. Hence, understanding the assumptions that come with each model and how it relates to the problem at hand is key to solving these problems. For example, the additive model generates a line to the dataset, and allows us to explore a number of minor alleles, major alleles, and their correlation with phenotypic variation. Such distinctions are important when performing association studies, such as for purposes related to drug target discovery.  
 
 #### b. Hidden Markov Models  
 The Hidden Markov Model (HMM) is one of the most useful models in machine learning. HMMs are a type of Bayesian network that use transition and emission probabilities to interpret the state probability of a dataset. HMMs have been used in bioinformatic modeling from gene finding [1] to chromatin state discovery [2]. Here, we present a simple gene-finding HMM used to capture the properties of a protein-coding gene.  
-![](https://github.com/leilinda/beng183/blob/master/Markouv%20model.png)  
+
+![](/Figures/Markouv.png)  
 
 This model requires a training set of labeled DNA sequences as inputs. Start and end coordinates, splice sites, and UTRs may be included as labels for such a model. The model uses this training data to learn general properties of genes, including the DNA pattern near donor and acceptor splice sites, the expected length distributions for each element, and patterns within elements, such as typical codons in an exon vs. an intron. The trained model can subsequently use these learned properties to identify novel genes that resemble the genes in the training set. 
 
@@ -59,7 +60,7 @@ This model requires a training set of labeled DNA sequences as inputs. Start and
 Finally, bioinformaticians often work with unlabelled data and use various clustering and dimensionality reduction algorithms to make sense of it. Here, we will discuss two such algorithms and their uses in the field.  
 
 #### a. Hierarchical Clustering  
-![](https://github.com/leilinda/beng183/blob/master/dendogram.png)  
+![](/Figures/dendogram.png)  
 Hierarchical clustering is useful in clustering datapoints to determine a similarity relationship within clusters and between clusters. The algorithm for hieararchical clustering is as follows:  
 ```
 1. First, what determines what makes some points more “similar” to each other than other points. For example, we could use distance between points as a basis for similarity  
@@ -72,7 +73,7 @@ Hierarchical clustering is useful in clustering datapoints to determine a simila
 Hiearchical clustering has applications including quality checking (do technical/biological replicates cluster together?) or in evolutionary genomics, such as phylogenetic tree inference.  
 
 #### b. K-means Clustering  
-![](https://github.com/leilinda/beng183/blob/master/k-means%20clustering.png)  
+![](/Figures/k-means.png)  
 K-means clustering offers a simple alternative method of aggregating datapoints for further analysis. The algorithm for k-means clustering is as follows:  
 ```
 1. Begin with predetermined choice of clusters K, which are represented by centroids. Iterate the following two steps.
